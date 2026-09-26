@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "results")
-FIG = os.path.join(HERE, "figures")
+FIG = os.environ.get("FIG_DIR", os.path.join(HERE, "figures"))
+DPI = int(os.environ.get("FIG_DPI", 170))   # 600 for journal submission
 os.makedirs(FIG, exist_ok=True)
 
 SURFACE, INK, INK2, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#e4e3df"
@@ -59,7 +60,7 @@ def fig_main(D):
             if j == 0:
                 ax.set_ylabel(a, color=INK, fontsize=10)
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig1_main_comparison.png"), dpi=170)
+    fig.savefig(os.path.join(FIG, "fig1_main_comparison.png"), dpi=DPI)
     plt.close(fig)
 
 
@@ -79,7 +80,7 @@ def fig_tuning(D):
     axes[0, 0].legend(frameon=False, fontsize=8, loc="lower left")
     fig.suptitle("Positional tuning: shifts never used in training", x=0.01, ha="left", fontsize=10.5)
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig2_tuning_curves.png"), dpi=170)
+    fig.savefig(os.path.join(FIG, "fig2_tuning_curves.png"), dpi=DPI)
     plt.close(fig)
 
 
@@ -107,7 +108,7 @@ def fig_frequency():
     axes[0].text(F.n_tata.max(), 0.52, "chance", ha="right", va="bottom", fontsize=7.5, color=INK2)
     axes[0].legend(frameon=False, fontsize=8, loc="lower left", bbox_to_anchor=(0.0, 0.55))
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig3_rare_rule_curve.png"), dpi=170)
+    fig.savefig(os.path.join(FIG, "fig3_rare_rule_curve.png"), dpi=DPI)
     plt.close(fig)
 
 
@@ -135,7 +136,7 @@ def fig_atlas(top=24):
     cb.set_label("log2 observed / composition-matched expected", fontsize=8)
     ax.set_title("JASPAR 2026 positional grammar atlas of human core promoters (rules used by GCR-Atlas)")
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig4_atlas_heatmap.png"), dpi=170)
+    fig.savefig(os.path.join(FIG, "fig4_atlas_heatmap.png"), dpi=DPI)
     plt.close(fig)
 
 
@@ -178,7 +179,7 @@ def fig_hbb(arch="Transformer", seeds=(0, 1, 2)):
     axes[1].set_xlabel("Position relative to HBB TSS (bp)")
     axes[1].set_xlim(-50, 110)
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig5_hbb_beta_thalassemia.png"), dpi=170)
+    fig.savefig(os.path.join(FIG, "fig5_hbb_beta_thalassemia.png"), dpi=DPI)
     plt.close(fig)
 
 
@@ -211,7 +212,7 @@ def fig_mpra():
     fig.suptitle("Agreement with saturation-mutagenesis MPRA (seed ensembles; bars = 95% bootstrap CI)",
                  x=0.01, ha="left", fontsize=10.5)
     fig.tight_layout(rect=(0, 0.08, 1, 1))
-    fig.savefig(os.path.join(FIG, "fig6_mpra_validation.png"), dpi=170)
+    fig.savefig(os.path.join(FIG, "fig6_mpra_validation.png"), dpi=DPI)
     plt.close(fig)
 
 
@@ -266,7 +267,7 @@ def fig_tbp():
     ax.set_title("Agreement with TBP–DNA binding energetics (seed ensembles)")
     ax.legend(frameon=False, fontsize=8, loc="upper left")
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig7_tbp_binding.png"), dpi=170)
+    fig.savefig(os.path.join(FIG, "fig7_tbp_binding.png"), dpi=DPI)
     plt.close(fig)
 
 
@@ -298,7 +299,7 @@ def fig_toc():
     ax2.tick_params(labelsize=5.5)
     ax2.set_title("TATA grammar", fontsize=6.5)
     ax2.grid(False)
-    fig.savefig(os.path.join(FIG, "toc_graphic.png"), dpi=300)
+    fig.savefig(os.path.join(FIG, "toc_graphic.png"), dpi=max(300, DPI))
     plt.close(fig)
 
 

@@ -67,7 +67,7 @@ python stats.py                        # bootstrap CIs                      -> r
 python make_tables.py && python make_figures.py        # paper/tables.md, figures/
 ```
 
-Trained checkpoints (all 78 models) are on Hugging Face (https://huggingface.co/Sravankumarbonthada/promoter-grammar-gcr). Download them into `runs/` to
+Trained checkpoints (all 81 models) are on Hugging Face (https://huggingface.co/Sravankumarbonthada/promoter-grammar-gcr). Download them into `runs/` to
 re-evaluate without retraining:
 
 ```bash

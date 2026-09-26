@@ -158,7 +158,7 @@ canonical-TATA positives *x*, with displaced (*x̃*) and control (*x̂*) version
 **Seeds and software.**
 
 * **Seeds:** 5 per main configuration (Transformer, CNN and NT-v2-50M; baseline, GCR and
-  GCR-Atlas) and 3 elsewhere.
+  GCR-Atlas) and 3 elsewhere, including all NT-v2-100M configurations.
 * **Software:** PyTorch 2.3 and Transformers 4.57.
 * **Unit tests:** they verify exact composition preservation, GPU/CPU kernel agreement and
   target/control separation.
@@ -250,7 +250,7 @@ The atlas recovers known core-promoter architecture from sequence alone (Table 5
 Of the 1,019 motifs, 180 pass all criteria, giving 60 non-redundant rules. GCR-Atlas taught these
 rules to attention-based models:
 
-* **Mean 60-rule GD:** Transformer 0.25 → 0.64; NT-v2-50M 0.23 → 0.71.
+* **Mean 60-rule GD:** Transformer 0.25 → 0.64; NT-v2-50M 0.23 → 0.71; NT-v2-100M 0.28 → 0.76.
 * **TATA rule and accuracy:** both preserved.
 
 The global-pooling CNN gained less (0.24 → 0.34). Its translation-invariant readout can encode
@@ -271,12 +271,17 @@ Table 4, Figures 5–6).
 (0.247 for 50M, 0.255 for 100M), overall MPRA agreement changed little:
 
 * NT-v2-50M with GCR-Atlas: Δ = +0.065 [−0.019, +0.149], p = 0.06;
+* NT-v2-100M with GCR-Atlas: ρ 0.255 → 0.324, Δ = +0.068 [−0.011, +0.148], p = 0.04;
 * TATA-only GCR on the pretrained models: no change.
+
+Both pretrained sizes thus show the same small overall gain with GCR-Atlas (+0.065 and +0.068),
+with confidence intervals that include zero; we do not claim it as significant.
 
 On the three TATA-box promoters (*HBB*, *HBG1*, *MSMB*), however, the gains were significant:
 
 * NT-v2-50M with GCR-Atlas: ρ 0.47 → 0.65 (Δ = +0.175 [+0.074, +0.286]);
 * NT-v2-100M with GCR: 0.40 → 0.51 (Δ = +0.115 [+0.007, +0.221]);
+* NT-v2-100M with GCR-Atlas: 0.40 → 0.58 (Δ = +0.181 [+0.058, +0.307]);
 * CNN with GCR-Atlas: Δ = +0.096 [+0.002, +0.192].
 
 **β-thalassemia alleles.** The *HBB* TATA-box alleles (−31…−28) rose in rank among all 897 SNVs of
@@ -364,7 +369,7 @@ All input data are public:
 * TBP K_D values (ref 4, Table 1; transcribed in `tbp_binding.py`).
 
 Code (MIT license), unit tests, result files (JSON/CSV) and scripts that regenerate every table
-and figure are available at https://github.com/Maheshbonthada/promoter-grammar-gcr. All trained checkpoints (78 models across 4 architectures and 6 training
+and figure are available at https://github.com/Maheshbonthada/promoter-grammar-gcr. All trained checkpoints (81 models across 4 architectures and 6 training
 methods, 3–5 seeds each) are available at https://huggingface.co/Sravankumarbonthada/promoter-grammar-gcr (CC BY-NC-SA 4.0, following the Nucleotide Transformer
 license).
 
