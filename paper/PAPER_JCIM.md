@@ -251,7 +251,7 @@ Of the 1,019 motifs, 180 pass all criteria, giving 60 non-redundant rules. GCR-A
 rules to attention-based models:
 
 * **Mean 60-rule GD:** Transformer 0.25 → 0.64; NT-v2-50M 0.23 → 0.71; NT-v2-100M 0.28 → 0.76.
-* **TATA rule and accuracy:** both preserved.
+* **TATA rule and accuracy:** largely preserved (TATA GD 0.90–0.96; AUROC within 0.013 of baseline).
 
 The global-pooling CNN gained less (0.24 → 0.34). Its translation-invariant readout can encode
 position only through local context.
@@ -279,7 +279,7 @@ with confidence intervals that include zero; we do not claim it as significant.
 
 On the three TATA-box promoters (*HBB*, *HBG1*, *MSMB*), however, the gains were significant:
 
-* NT-v2-50M with GCR-Atlas: ρ 0.47 → 0.65 (Δ = +0.175 [+0.074, +0.286]);
+* NT-v2-50M with GCR-Atlas: ρ 0.47 → 0.65 (Δ = +0.179 [+0.077, +0.288]);
 * NT-v2-100M with GCR: 0.40 → 0.51 (Δ = +0.115 [+0.007, +0.221]);
 * NT-v2-100M with GCR-Atlas: 0.40 → 0.58 (Δ = +0.181 [+0.058, +0.307]);
 * CNN with GCR-Atlas: Δ = +0.096 [+0.002, +0.192].
