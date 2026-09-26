@@ -1,0 +1,79 @@
+{
+ "rank1_inv1_m1": {
+  "lam_rank": 1,
+  "lam_inv": 1,
+  "margin": 1,
+  "auroc": 0.9493450923375166,
+  "grammar_disc": 0.9863227146814404,
+  "delta_mut": 2.0493104457855225,
+  "delta_ctrl_abs": 0.049604661762714386,
+  "mpra_rho": 0.15717380113927593,
+  "thal_pct": 98.82407407407406
+ },
+ "rank0.3_inv1_m1": {
+  "lam_rank": 0.3,
+  "lam_inv": 1,
+  "margin": 1,
+  "auroc": 0.9438769003162943,
+  "grammar_disc": 0.9993074792243767,
+  "delta_mut": 1.8049601316452026,
+  "delta_ctrl_abs": 0.035496052354574203,
+  "mpra_rho": 0.16370262828572238,
+  "thal_pct": 90.8611111111111
+ },
+ "rank3_inv1_m1": {
+  "lam_rank": 3,
+  "lam_inv": 1,
+  "margin": 1,
+  "auroc": 0.9421949928578717,
+  "grammar_disc": 0.9996537396121884,
+  "delta_mut": 2.26505446434021,
+  "delta_ctrl_abs": 0.036092013120651245,
+  "mpra_rho": 0.17356526244675613,
+  "thal_pct": 98.62037037037038
+ },
+ "rank1_inv0.3_m1": {
+  "lam_rank": 1,
+  "lam_inv": 0.3,
+  "margin": 1,
+  "auroc": 0.945601851851852,
+  "grammar_disc": 1.0,
+  "delta_mut": 2.0422916412353516,
+  "delta_ctrl_abs": 0.048150986433029175,
+  "mpra_rho": 0.1656240352827909,
+  "thal_pct": 98.41666666666667
+ },
+ "rank1_inv3_m1": {
+  "lam_rank": 1,
+  "lam_inv": 3,
+  "margin": 1,
+  "auroc": 0.9384437812468116,
+  "grammar_disc": 0.986668975069252,
+  "delta_mut": 1.9963300228118896,
+  "delta_ctrl_abs": 0.01694275252521038,
+  "mpra_rho": 0.1014178754035282,
+  "thal_pct": 98.96296296296296
+ },
+ "rank1_inv1_m0.5": {
+  "lam_rank": 1,
+  "lam_inv": 1,
+  "margin": 0.5,
+  "auroc": 0.944240383634323,
+  "grammar_disc": 0.9736842105263158,
+  "delta_mut": 1.2991596460342407,
+  "delta_ctrl_abs": 0.025117630138993263,
+  "mpra_rho": 0.14565972481665598,
+  "thal_pct": 90.4074074074074
+ },
+ "rank1_inv1_m2": {
+  "lam_rank": 1,
+  "lam_inv": 1,
+  "margin": 2,
+  "auroc": 0.9354912764003673,
+  "grammar_disc": 0.9974030470914127,
+  "delta_mut": 2.724652051925659,
+  "delta_ctrl_abs": 0.03297321870923042,
+  "mpra_rho": 0.15806191544585696,
+  "thal_pct": 96.41666666666667
+ }
+}

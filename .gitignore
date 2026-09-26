@@ -1,0 +1,23 @@
+# model checkpoints (published on Hugging Face instead)
+runs/
+
+# python / tooling caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# regenerable downloads (python prepare_data.py; JASPAR bulk file from jaspar.elixir.no)
+data/*.npz
+data/JASPAR2026_*.txt
+
+# run logs (local paths, progress noise)
+results/*log*.txt
+
+# private application material (kept local, not part of the scientific record)
+STUDY_GUIDE.md
+01_problem_selection.md
+paper/EMAIL_DRAFT_to_Dr_Khan.md
+paper/JCIM_COVER_LETTER.md
+paper/SELF_SCORE.md
+paper/SELF_SCORE_JCIM.md
+paper/REVIEW_PANEL.md
