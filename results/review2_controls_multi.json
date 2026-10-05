@@ -1,0 +1,38 @@
+{
+ "all 9 promoters": {
+  "gcr_atlas vs gcr_atlas_scram": {
+   "Transformer": "+0.128 [\u22120.007, +0.289], p = 0.06",
+   "CNN-GlobalPool": "+0.148 [+0.042, +0.293], p = 0.01",
+   "NT-v2-50M": "+0.194 [+0.084, +0.327], p = 0.003",
+   "NT-v2-100M": "+0.132 [+0.028, +0.277], p = 0.02",
+   "pooled": "+0.157 [+0.058, +0.273], p = 0.004",
+   "direction": "4 of 4 architectures positive"
+  },
+  "gcr_atlas vs baseline": {
+   "Transformer": "+0.177 [+0.081, +0.295], p < 0.001",
+   "CNN-GlobalPool": "+0.028 [\u22120.039, +0.123], p = 0.44",
+   "NT-v2-50M": "+0.065 [\u22120.050, +0.208], p = 0.28",
+   "NT-v2-100M": "+0.069 [\u22120.045, +0.218], p = 0.27",
+   "pooled": "+0.089 [+0.020, +0.189], p = 0.002",
+   "direction": "4 of 4 architectures positive"
+  }
+ },
+ "excluding LDLR": {
+  "gcr_atlas vs gcr_atlas_scram": {
+   "Transformer": "+0.073 [\u22120.044, +0.251], p = 0.19",
+   "CNN-GlobalPool": "+0.130 [+0.012, +0.316], p = 0.03",
+   "NT-v2-50M": "+0.172 [+0.054, +0.354], p = 0.009",
+   "NT-v2-100M": "+0.133 [+0.001, +0.320], p = 0.05",
+   "pooled": "+0.139 [+0.034, +0.288], p = 0.01",
+   "direction": "4 of 4 architectures positive"
+  },
+  "gcr_atlas vs baseline": {
+   "Transformer": "+0.161 [+0.054, +0.313], p = 0.006",
+   "CNN-GlobalPool": "+0.005 [\u22120.054, +0.111], p = 0.81",
+   "NT-v2-50M": "+0.058 [\u22120.068, +0.233], p = 0.42",
+   "NT-v2-100M": "+0.090 [\u22120.049, +0.259], p = 0.20",
+   "pooled": "+0.084 [+0.007, +0.210], p = 0.01",
+   "direction": "4 of 4 architectures positive"
+  }
+ }
+}

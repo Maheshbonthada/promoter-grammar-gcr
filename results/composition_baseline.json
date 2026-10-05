@@ -1,0 +1,30 @@
+{
+ "GC content": {
+  "auroc": 0.8982892370676462,
+  "n_features": 1
+ },
+ "k-mers, k = 1..1": {
+  "auroc": 0.8981497423732272,
+  "n_features": 4
+ },
+ "k-mers, k = 1..2": {
+  "auroc": 0.9091546780940721,
+  "n_features": 20
+ },
+ "k-mers, k = 1..3": {
+  "auroc": 0.9159811498826651,
+  "n_features": 84
+ },
+ "k-mers, k = 1..4": {
+  "auroc": 0.9252117130905009,
+  "n_features": 340
+ },
+ "k-mers, k = 1..5": {
+  "auroc": 0.9257473727170697,
+  "n_features": 1364
+ },
+ "k-mers, k = 1..6": {
+  "auroc": 0.909978892459953,
+  "n_features": 5460
+ }
+}

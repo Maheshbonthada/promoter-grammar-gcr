@@ -42,10 +42,11 @@ def main():
     print(f"pools: canonical-TATA promoters {len(Xtata)}, other promoters {len(Xother)}, background {len(Xneg)}")
     _, _, _, Xte, yte, tte, Xg, yg, tg = build()
     out = json.load(open(PATH)) if os.path.exists(PATH) else {}
-    for f in FRACS:
+    for f in (FRACS[::-1] if os.environ.get("REVERSE") else FRACS):     # REVERSE=1: second parallel worker
         for method in ["baseline", "gcr"]:
             for seed in SEEDS:
                 key = f"{f}|{method}|{seed}"
+                out.update(json.load(open(PATH)) if os.path.exists(PATH) else {})   # parallel workers share PATH
                 if key in out or (method == "gcr" and f == 0.0):
                     continue
                 rng = np.random.default_rng(seed)
@@ -60,8 +61,12 @@ def main():
                 r_test = evaluate(m, Xte, yte, tte, seed=seed, R=1)
                 r = evaluate(m, Xg, yg, tg, seed=seed)
                 out[key] = dict(frac=f, n_tata=k, method=method, seed=seed, auroc=r_test["auroc"],
-                                **{kk: r[kk] for kk in ("delta_tata", "delta_ctrl_abs", "delta_mut", "grammar_disc")})
-                json.dump(out, open(PATH, "w"), indent=1)
+                                **{kk: r[kk] for kk in ("delta_tata", "delta_ctrl", "delta_ctrl_abs", "delta_mut",
+                                                      "delta_mut_ctrl", "grammar_disc", "grammar_disc_asym",
+                                                      "heldout_gd")})
+                disk = json.load(open(PATH)) if os.path.exists(PATH) else {}
+                disk[key] = out[key]
+                json.dump(disk, open(PATH, "w"), indent=1)
                 print(f"f={f:<5} n_tata={k:<4} {method:8s} seed {seed}: auroc {r_test['auroc']:.3f} "
                       f"GD {r['grammar_disc']:.2f} dMUT {r['delta_mut']:+.2f} ({time.time() - t0:.0f}s)", flush=True)
 

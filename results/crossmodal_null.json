@@ -1,0 +1,66 @@
+{
+ "composition_only_auroc": 0.9193046944693948,
+ "target_comp_auroc": 0.898,
+ "runs": {
+  "full|CNN-GlobalPool|0": {
+   "auroc": 0.9783948003047245,
+   "grammar_disc": 0.46842383405998145,
+   "n_train": 24000
+  },
+  "full|CNN-GlobalPool|1": {
+   "auroc": 0.9766864600926688,
+   "grammar_disc": 0.48298982692561765,
+   "n_train": 24000
+  },
+  "full|CNN-GlobalPool|2": {
+   "auroc": 0.9795854938668469,
+   "grammar_disc": 0.41006077421059595,
+   "n_train": 24000
+  },
+  "full|Transformer|0": {
+   "auroc": 0.9822762437818798,
+   "grammar_disc": 0.34839476813317477,
+   "n_train": 24000
+  },
+  "full|Transformer|1": {
+   "auroc": 0.9822609287922369,
+   "grammar_disc": 0.324349319593077,
+   "n_train": 24000
+  },
+  "full|Transformer|2": {
+   "auroc": 0.9772471137339264,
+   "grammar_disc": 0.5907319328841327,
+   "n_train": 24000
+  },
+  "noelem|CNN-GlobalPool|0": {
+   "auroc": 0.9656889223054322,
+   "grammar_disc": 0.5381159994715287,
+   "n_train": 21067
+  },
+  "noelem|CNN-GlobalPool|1": {
+   "auroc": 0.9623193432882433,
+   "grammar_disc": 0.5621614480116264,
+   "n_train": 21067
+  },
+  "noelem|CNN-GlobalPool|2": {
+   "auroc": 0.9670198261604902,
+   "grammar_disc": 0.5203131193024177,
+   "n_train": 21067
+  },
+  "noelem|Transformer|0": {
+   "auroc": 0.9736927234233514,
+   "grammar_disc": 0.49910820451843046,
+   "n_train": 21067
+  },
+  "noelem|Transformer|1": {
+   "auroc": 0.9734835019117795,
+   "grammar_disc": 0.4831880036992998,
+   "n_train": 21067
+  },
+  "noelem|Transformer|2": {
+   "auroc": 0.9741389209583383,
+   "grammar_disc": 0.4931629013079667,
+   "n_train": 21067
+  }
+ }
+}

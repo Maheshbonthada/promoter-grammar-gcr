@@ -1,0 +1,15 @@
+{
+ "CTRL_ATLAS_VS_BASE": "+0.177 [+0.081, +0.295], p < 0.001",
+ "CTRL_SCRAM_VS_BASE": "+0.049 [\u22120.047, +0.126], p = 0.37",
+ "CTRL_DECOY_VS_BASE": "+0.046 [\u22120.035, +0.118], p = 0.31",
+ "CTRL_RANDAUG_VS_BASE": "+0.044 [\u22120.005, +0.079], p = 0.08",
+ "CTRL_ATLAS_VS_SCRAM": "+0.128 [\u22120.007, +0.289], p = 0.06",
+ "CTRL_GCR_VS_DECOY": "+0.051 [\u22120.051, +0.192], p = 0.25",
+ "RHO_gcr_atlas_scram": "0.137",
+ "RHO_gcr_decoy": "0.134",
+ "RHO_randaug": "0.133",
+ "RHO_gcr_atlas": "0.265",
+ "RHO_gcr": "0.185",
+ "RHO_baseline": "0.088",
+ "CTRL_GENERIC_MEAN": "+0.046"
+}

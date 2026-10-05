@@ -206,13 +206,17 @@ def atlas_grammar(model, X, inst, rules, seed=0, R=4):
         ctrl = control_starts(a, w, rng)
         tgt = far_targets(lo[k], hi[k], w, len(s), rng, avoid=ctrl)
         d_m += z0 - predict(model, swap_var(xs, T(a), T(tgt), T(w), wmax).cpu().numpy())
-        d_c += np.abs(z0 - predict(model, swap_var(xs, T(ctrl), T(tgt), T(w), wmax).cpu().numpy()))
+        d_c += z0 - predict(model, swap_var(xs, T(ctrl), T(tgt), T(w), wmax).cpu().numpy())
     d_m, d_c = d_m / R, d_c / R
     per = {}
     for kk, r in enumerate(rules):
         sel = k == kk
         if sel.sum() >= 15:
             yy = np.r_[np.ones(sel.sum()), np.zeros(sel.sum())]
-            per[r["name"]] = dict(n=int(sel.sum()), delta=float(d_m[sel].mean()), ctrl=float(d_c[sel].mean()),
-                                  gd=float(roc_auc_score(yy, np.r_[d_m[sel], d_c[sel]])))
+            # gd: both effects signed (null = 0.5); gd_asym: original signed-vs-absolute version (null ~ 0.25)
+            # keyed by name AND window: several motifs contribute two rules (e.g. FEV at -28 and -40)
+            per[f"{r['name']}@{r['lo'] - 49}..{r['hi'] - 49}"] = dict(
+                                  n=int(sel.sum()), delta=float(d_m[sel].mean()), ctrl=float(d_c[sel].mean()),
+                                  gd=float(roc_auc_score(yy, np.r_[d_m[sel], d_c[sel]])),
+                                  gd_asym=float(roc_auc_score(yy, np.r_[d_m[sel], np.abs(d_c[sel])])))
     return per

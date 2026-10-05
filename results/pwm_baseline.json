@@ -1,0 +1,26 @@
+{
+ "GC": {
+  "auroc": 0.8982892370676462,
+  "spearman_all": 0.0567999961741674,
+  "spearman_promoter_mean": -0.02813246663866911,
+  "spearman_tata": 0.05515808489667438
+ },
+ "PWM anywhere": {
+  "auroc": 0.21150902969084787,
+  "spearman_all": 0.13156062949258712,
+  "spearman_promoter_mean": 0.30329551344166356,
+  "spearman_tata": 0.5085950988775657
+ },
+ "PWM at -30": {
+  "auroc": 0.2847716431996735,
+  "spearman_all": 0.11761495644990998,
+  "spearman_promoter_mean": 0.25974111288490564,
+  "spearman_tata": 0.42793603972155997
+ },
+ "GC + PWM at -30": {
+  "auroc": 0.8982095258136925,
+  "spearman_all": 0.10139906004419126,
+  "spearman_promoter_mean": 0.040163050296296424,
+  "spearman_tata": 0.13404000879780642
+ }
+}

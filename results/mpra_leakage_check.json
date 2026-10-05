@@ -1,0 +1,71 @@
+{
+ "all 9 promoters": {
+  "gcr_atlas vs baseline": {
+   "delta": 0.17712602862461196,
+   "lo": 0.08143978617248361,
+   "hi": 0.2953629377809834,
+   "p": 0.0002,
+   "n_promoters": 9
+  },
+  "gcr vs baseline": {
+   "delta": 0.09697374289139524,
+   "lo": 0.0017287397668371517,
+   "hi": 0.2463794134956219,
+   "p": 0.0456,
+   "n_promoters": 9
+  },
+  "gcr_atlas vs gcr_atlas_scram": {
+   "delta": 0.1284909656587381,
+   "lo": -0.003537610092870774,
+   "hi": 0.29477252302475243,
+   "p": 0.0556,
+   "n_promoters": 9
+  }
+ },
+ "excluding LDLR (exact overlap)": {
+  "gcr_atlas vs baseline": {
+   "delta": 0.1608256680420336,
+   "lo": 0.05357698284515788,
+   "hi": 0.31349651339006274,
+   "p": 0.0064,
+   "n_promoters": 8
+  },
+  "gcr vs baseline": {
+   "delta": 0.10367933982387093,
+   "lo": -0.010560516448010177,
+   "hi": 0.2851954754564178,
+   "p": 0.0676,
+   "n_promoters": 8
+  },
+  "gcr_atlas vs gcr_atlas_scram": {
+   "delta": 0.07254144295959558,
+   "lo": -0.04819924834595765,
+   "hi": 0.24610890600257046,
+   "p": 0.184,
+   "n_promoters": 8
+  }
+ },
+ "excluding all 6 overlapping": {
+  "gcr_atlas vs baseline": {
+   "delta": 0.001876759461995614,
+   "lo": -0.14785059901338968,
+   "hi": 0.13362369337979094,
+   "p": 0.5084,
+   "n_promoters": 3
+  },
+  "gcr vs baseline": {
+   "delta": 0.04359470215005401,
+   "lo": -0.22762508809020435,
+   "hi": 0.12602374795250412,
+   "p": 0.8128,
+   "n_promoters": 3
+  },
+  "gcr_atlas vs gcr_atlas_scram": {
+   "delta": -0.1669859288703597,
+   "lo": -0.1669859288703597,
+   "hi": 0.11070795033059186,
+   "p": 0.146,
+   "n_promoters": 3
+  }
+ }
+}

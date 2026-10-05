@@ -1,0 +1,66 @@
+{
+ "full|CNN-GlobalPool|baseline|0": {
+  "pearson": 0.2558608949184418,
+  "spearman": 0.23189013541297726,
+  "pearson_promoters": 0.26779475808143616,
+  "sign_agreement": 0.5880855397148677,
+  "pred_sd": 0.3729287087917328,
+  "n": 1964
+ },
+ "full|CNN-GlobalPool|baseline|1": {
+  "pearson": 0.26979634165763855,
+  "spearman": 0.23060921603543758,
+  "pearson_promoters": 0.33038952946662903,
+  "sign_agreement": 0.5692464358452138,
+  "pred_sd": 0.3347124457359314,
+  "n": 1964
+ },
+ "full|CNN-GlobalPool|baseline|2": {
+  "pearson": 0.25950920581817627,
+  "spearman": 0.21560464653362432,
+  "pearson_promoters": 0.2970964014530182,
+  "sign_agreement": 0.5692464358452138,
+  "pred_sd": 0.35464075207710266,
+  "n": 1964
+ },
+ "full|CNN-GlobalPool|gcr|0": {
+  "pearson": 0.16486550867557526,
+  "spearman": 0.182238359796944,
+  "pearson_promoters": 0.23675012588500977,
+  "sign_agreement": 0.5682281059063137,
+  "pred_sd": 0.39257657527923584,
+  "n": 1964
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|0": {
+  "pearson": 0.259317547082901,
+  "spearman": 0.21377662563142544,
+  "pearson_promoters": 0.3013014793395996,
+  "sign_agreement": 0.5641547861507128,
+  "pred_sd": 0.33441492915153503,
+  "n": 1964
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|1": {
+  "pearson": 0.2526940405368805,
+  "spearman": 0.2161255644339197,
+  "pearson_promoters": 0.261547327041626,
+  "sign_agreement": 0.5641547861507128,
+  "pred_sd": 0.33500784635543823,
+  "n": 1964
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|2": {
+  "pearson": 0.24300675094127655,
+  "spearman": 0.21356095841981046,
+  "pearson_promoters": 0.31852489709854126,
+  "sign_agreement": 0.5712830957230143,
+  "pred_sd": 0.4193176031112671,
+  "n": 1964
+ },
+ "full|CNN-GlobalPool|gcr|lam0.3|0": {
+  "pearson": 0.14698073267936707,
+  "spearman": 0.15482051097778546,
+  "pearson_promoters": 0.2596883773803711,
+  "sign_agreement": 0.5478615071283096,
+  "pred_sd": 0.4909977316856384,
+  "n": 1964
+ }
+}

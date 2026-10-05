@@ -6,16 +6,18 @@ Methods
   hardneg    + TATA-displaced counterfactuals labelled as negatives (naive)
   gcr_rank   + ranking margin  z(x) - z(x_displaced) >= m          (ours, ablation)
   gcr        + ranking margin  + invariance to position-matched control swaps (ours)
+  gcr_decoy  identical to gcr, but the protected block is a meaningless downstream position
+             (falsification control: does the gain come from the rule or from the regularizer?)
 """
 import numpy as np
 import torch
 import torch.nn.functional as F
 from sklearn.metrics import roc_auc_score, matthews_corrcoef
-from counterfactuals import (BLOCK, FAR_TARGETS, CTRL_STARTS, swap, move, displace_tata, control_swap,
-                             random_translocation)
+from counterfactuals import (BLOCK, FAR_TARGETS, CTRL_STARTS, DECOY_POS, DECOY_TARGETS, swap, move,
+                             displace_tata, control_swap, random_translocation, control_double_sub)
 
 DEV = "cuda" if torch.cuda.is_available() else "cpu"
-METHODS = ["baseline", "randaug", "hardneg", "gcr_rank", "gcr"]
+METHODS = ["baseline", "randaug", "hardneg", "gcr_rank", "gcr", "gcr_decoy"]
 
 
 # ---------------------------------------------------------------- GPU edits
@@ -62,16 +64,20 @@ def train(model, X, y, tata, method="baseline", epochs=20, bs=128, lr=1e-3, seed
             if method == "randaug":
                 xb = torch.as_tensor(random_translocation(xb.cpu().numpy(), rng), device=DEV)
             loss = F.binary_cross_entropy_with_logits(model(xb), yb)
-            if method in ("hardneg", "gcr_rank", "gcr") and len(Xc):
+            if method in ("hardneg", "gcr_rank", "gcr", "gcr_decoy") and len(Xc):
                 k = torch.randint(len(Xc), (n_aux,), device=DEV, generator=g)
                 xc, pc = Xc[k], Pc[k]
-                x_cf = _swap_t(xc, pc, _rand_from(FAR_TARGETS, n_aux, g))
+                if method == "gcr_decoy":       # same loss, deliberately wrong rule
+                    pc = torch.full_like(pc, DECOY_POS)
+                    x_cf = _swap_t(xc, pc, _rand_from(DECOY_TARGETS, n_aux, g))
+                else:
+                    x_cf = _swap_t(xc, pc, _rand_from(FAR_TARGETS, n_aux, g))
                 if method == "hardneg":
                     loss = loss + F.binary_cross_entropy_with_logits(model(x_cf), torch.zeros(n_aux, device=DEV))
                 else:
                     z, z_cf = model(xc), model(x_cf)
                     loss = loss + lam_rank * F.relu(margin - (z - z_cf)).mean()
-                    if method == "gcr":
+                    if method in ("gcr", "gcr_decoy"):
                         x_ct = _swap_t(xc, _rand_from(CTRL_STARTS, n_aux, g), _rand_from(FAR_TARGETS, n_aux, g))
                         loss = loss + lam_inv * (z - model(x_ct)).pow(2).mean()
             opt.zero_grad(set_to_none=True)
@@ -120,12 +126,21 @@ def evaluate(model, X, y, tata, seed=0, R=8):
     for s in SHIFTS:
         Xs = np.stack([move(x, p, p + s) if s else x for x, p in zip(Xc, pc)])
         curve.append(float(np.mean(predict(model, Xs) - zc)))
+    # held-out control for the double substitution: two A/T -> G/C changes in a non-TATA block
+    d_mut_ctrl = np.mean([zc - predict(model, control_double_sub(Xc, rng)) for _ in range(R)], 0)
+    lab = np.r_[np.ones(len(idx)), np.zeros(len(idx))]
+    ok = len(idx) > 1
     res.update(
         n_grammar=int(len(idx)),
-        delta_tata=float(d_tata.mean()), delta_ctrl_abs=float(np.abs(d_ctrl).mean()),
-        delta_mut=float(d_mut.mean()),
-        grammar_disc=float(roc_auc_score(np.r_[np.ones(len(idx)), np.zeros(len(idx))],
-                                         np.r_[d_tata, np.abs(d_ctrl)])) if len(idx) > 1 else float("nan"),
+        delta_tata=float(d_tata.mean()), delta_ctrl=float(d_ctrl.mean()),
+        delta_ctrl_abs=float(np.abs(d_ctrl).mean()),
+        delta_mut=float(d_mut.mean()), delta_mut_ctrl=float(d_mut_ctrl.mean()),
+        # grammar discrimination: AUROC of TATA-displacement vs control-swap effects, both signed (null = 0.5)
+        grammar_disc=float(roc_auc_score(lab, np.r_[d_tata, d_ctrl])) if ok else float("nan"),
+        # the original asymmetric version (signed vs absolute; null ~ 0.25), kept for comparison
+        grammar_disc_asym=float(roc_auc_score(lab, np.r_[d_tata, np.abs(d_ctrl)])) if ok else float("nan"),
+        # held-out grammar: TATA double substitution vs matched control substitution (no training edit)
+        heldout_gd=float(roc_auc_score(lab, np.r_[d_mut, d_mut_ctrl])) if ok else float("nan"),
         tuning_curve=curve,
     )
     return res

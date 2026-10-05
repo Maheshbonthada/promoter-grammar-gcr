@@ -1,3 +1,5 @@
+> **Superseded draft (29 September 2026).** This draft used a grammar-discrimination statistic whose null value is about 0.25, not 0.5, so its statements that baseline models are "at or below chance" are wrong, and some of its p-values are one-sided. See the correction note in `README.md` and the regenerated `paper/tables.md`.
+
 # Composition-Preserving Counterfactual Regularization Teaches DNA Language Models the Positional Grammar of TBP–Promoter Recognition
 
 [Author names]¹, …

@@ -1,5 +1,9 @@
-# model checkpoints (published on Hugging Face instead)
+# model checkpoints (published on Hugging Face instead). Every runs* directory, not just runs/:
+# runs_review2/ holds the architecture-matched nulls, including 2 GB NT-500M checkpoints.
 runs/
+runs_review2/
+runs_lentimpra/
+runs_splice/
 
 # python / tooling caches
 __pycache__/
@@ -22,3 +26,10 @@ paper/SELF_SCORE.md
 paper/SELF_SCORE_JCIM.md
 paper/REVIEW_PANEL.md
 submission_JCIM/
+submission_NCS/
+
+# prepared submissions (kept local, as for the earlier JCIM/NCS attempts)
+CBM_SUBMIT/
+NCS_SUBMIT/
+submission_CBM/
+results/archive_v1/

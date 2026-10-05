@@ -36,12 +36,37 @@ def study_df():
     return pd.DataFrame(rows)
 
 
+def _heldout_reference():
+    """Reference level of TATA recognition without TATA knowledge from training, per architecture: models trained on
+    the main training set with every canonical-TATA promoter removed (review2_study.py). Falls back to the
+    Transformers of the rare-rule experiment trained with 0 canonical-TATA promoters."""
+    ref = {}
+    p = os.path.join(RES, "review2_study.json")
+    if os.path.exists(p):
+        R = json.load(open(p))
+        for a in ["Transformer", "CNN-GlobalPool", "NT-v2-50M", "NT-v2-100M"]:
+            v = [r["heldout_gd"] for k, r in R.items() if k.startswith(f"notata|{a}|baseline|")]
+            if v:
+                ref[a] = float(np.mean(v))
+    if ref:
+        return ref
+    p = os.path.join(RES, "freq_study.json")
+    if not os.path.exists(p):
+        return {}
+    v = [r["heldout_gd"] for r in json.load(open(p)).values() if r["n_tata"] == 0 and "heldout_gd" in r]
+    return {a: float(np.mean(v)) for a in ["Transformer", "CNN-GlobalPool", "NT-v2-50M", "NT-v2-100M"]} if v else {}
+
+
+HO_REF = _heldout_reference()
+
+
 def fig_main(D):
     archs = [a for a in ["Transformer", "CNN-GlobalPool", "NT-v2-50M", "NT-v2-100M"] if a in set(D.arch)]
-    fig, axes = plt.subplots(len(archs), 3, figsize=(10, 2.5 * len(archs)), squeeze=False)
+    fig, axes = plt.subplots(len(archs), 4, figsize=(13, 2.5 * len(archs)), squeeze=False)
     for i, a in enumerate(archs):
-        for j, (col, title, ref) in enumerate([("grammar_disc", "Grammar discrimination (0.5 = chance)", 0.5),
-                                               ("delta_mut", "TATA point-mutation effect (logit drop)", 0.0),
+        for j, (col, title, ref) in enumerate([("grammar_disc", "Grammar discrimination (0.5 = none)", 0.5),
+                                               ("heldout_gd", "TATA recognition, held-out edits", 0.5),
+                                               ("delta_mut", "TATA double substitution (logit drop)", 0.0),
                                                ("auroc", "Test AUROC (chr20/21)", None)]):
             ax = axes[i, j]
             ms = [m for m in ORDER if m in set(D[D.arch == a].method)]
@@ -52,6 +77,8 @@ def fig_main(D):
                 ax.hlines(v.mean(), x - 0.3, x + 0.3, color=COLOR[m], lw=2, zorder=2)
             if ref is not None:
                 ax.axhline(ref, color=INK2, lw=0.8, ls=":")
+            if col == "heldout_gd" and a in HO_REF:               # same architecture trained with no TATA promoters
+                ax.axhline(HO_REF[a], color=INK2, lw=0.8, ls="--")
             ax.set_xticks(range(len(ms)))
             ax.set_xticklabels([LABEL[m].split(" (")[0] if m != "gcr_rank" else "GCR-rank" for m in ms],
                                rotation=25, ha="right", fontsize=8)
@@ -89,9 +116,10 @@ def fig_frequency():
     if not os.path.exists(p):
         return
     F = pd.DataFrame(json.load(open(p)).values())
-    fig, axes = plt.subplots(1, 2, figsize=(8, 2.9))
+    fig, axes = plt.subplots(1, 3, figsize=(12, 2.9))
     for ax, col, title in [(axes[0], "grammar_disc", "Grammar discrimination"),
-                           (axes[1], "auroc", "Test AUROC")]:
+                           (axes[1], "heldout_gd", "Held-out grammar discrimination"),
+                           (axes[2], "auroc", "Test AUROC")]:
         for m in ["baseline", "gcr"]:
             g = F[F.method == m].groupby("n_tata")[col]
             mu, lo, hi = g.mean(), g.min(), g.max()
@@ -104,8 +132,9 @@ def fig_frequency():
         ax.minorticks_off()
         ax.set_xlabel("TATA promoters in training (of 3,000; 30 = 1%, 480 = 16%)")
         ax.set_title(title)
-    axes[0].axhline(0.5, color=INK2, lw=0.8, ls=":")
-    axes[0].text(F.n_tata.max(), 0.52, "chance", ha="right", va="bottom", fontsize=7.5, color=INK2)
+    for ax in axes[:2]:
+        ax.axhline(0.5, color=INK2, lw=0.8, ls=":")
+        ax.text(F.n_tata.max(), 0.52, "no positional knowledge", ha="right", va="bottom", fontsize=7.5, color=INK2)
     axes[0].legend(frameon=False, fontsize=8, loc="lower left", bbox_to_anchor=(0.0, 0.55))
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "fig3_rare_rule_curve.png"), dpi=DPI)
@@ -303,6 +332,34 @@ def fig_toc():
     plt.close(fig)
 
 
+def fig_implant():
+    """TATA implantation into held-out promoters without a canonical TATA box (review2_probe.py)."""
+    p = os.path.join(RES, "review2_probe.json")
+    if not os.path.exists(p):
+        return
+    P = json.load(open(p))
+    from review2_probe import STARTS, TSS
+    x = STARTS - TSS
+    archs = ["Transformer", "CNN-GlobalPool", "NT-v2-50M", "NT-v2-100M"]
+    fig, axes = plt.subplots(1, 4, figsize=(13.6, 2.9), squeeze=False)
+    for ax, a in zip(axes[0], archs):
+        for m in ["baseline", "gcr", "gcr_atlas"]:
+            c = np.array([v["implant_curve"] for k, v in P.items() if k.startswith(f"{a}|{m}|")])
+            if len(c):
+                ax.plot(x, c.mean(0), color=COLOR[m], lw=2, marker="o", ms=3, label=LABEL[m])
+                if len(c) > 1:
+                    ax.fill_between(x, c.min(0), c.max(0), color=COLOR[m], alpha=0.15, lw=0)
+        ax.axvline(-30, color=INK2, lw=0.8, ls=":")
+        ax.axhline(0, color=INK2, lw=0.6)
+        ax.set_title(a)
+        ax.set_xlabel("Start of implanted TATAAAA (bp from TSS)")
+    axes[0, 0].set_ylabel("TATA-specific gain (logit)")
+    axes[0, 0].legend(frameon=False, fontsize=8, loc="upper right")
+    fig.tight_layout()
+    fig.savefig(os.path.join(FIG, "fig8_tata_implant.png"), dpi=DPI)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     fig_tbp()
     fig_toc()
@@ -313,4 +370,5 @@ if __name__ == "__main__":
     fig_tuning(D)
     fig_frequency()
     fig_atlas()
+    fig_implant()
     print("figures written to", FIG)
