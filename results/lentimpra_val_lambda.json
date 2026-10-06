@@ -1,0 +1,42 @@
+{
+ "full|CNN-GlobalPool|baseline|0": {
+  "pearson_all": 0.6300377249717712,
+  "grammar_disc": 0.5233585858585859,
+  "n_test": 45272
+ },
+ "full|CNN-GlobalPool|baseline|1": {
+  "pearson_all": 0.6279662251472473,
+  "grammar_disc": 0.4877180899908173,
+  "n_test": 45272
+ },
+ "full|CNN-GlobalPool|baseline|2": {
+  "pearson_all": 0.6262350082397461,
+  "grammar_disc": 0.4971877869605142,
+  "n_test": 45272
+ },
+ "full|CNN-GlobalPool|gcr|0": {
+  "pearson_all": 0.5534571409225464,
+  "grammar_disc": 0.9789944903581267,
+  "n_test": 45272
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|0": {
+  "pearson_all": 0.6124857664108276,
+  "grammar_disc": 0.9300964187327824,
+  "n_test": 45272
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|1": {
+  "pearson_all": 0.6175283193588257,
+  "grammar_disc": 0.9145431588613409,
+  "n_test": 45272
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|2": {
+  "pearson_all": 0.5939798355102539,
+  "grammar_disc": 0.9742883379247016,
+  "n_test": 45272
+ },
+ "full|CNN-GlobalPool|gcr|lam0.3|0": {
+  "pearson_all": 0.5231337547302246,
+  "grammar_disc": 0.9919077134986225,
+  "n_test": 45272
+ }
+}

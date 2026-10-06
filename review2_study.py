@@ -6,6 +6,7 @@
             only separate them by motifs. Does the baseline then learn where the TATA box belongs?
   notata    The main training set with every canonical-TATA promoter removed. Its TATA recognition score is
             the architecture-matched reference level for a model without TATA knowledge from training.
+  negmatchnull  As negmatch, with every canonical-TATA promoter removed: the null for negmatch.
   strictnull  As notata, but sequences with a canonical TATA box at -30 are removed from both classes.
 
     python review2_study.py EXPERIMENT ARCH [ARCH ...]      # METHODS=baseline,gcr  SEEDS=0,1,2
@@ -50,8 +51,12 @@ def gc(X):
 def data(exp):
     Xtr, ytr, ttr, Xte, yte, tte, Xg, yg, tg = build()
     extra = {}
-    if exp == "negmatch":
+    if exp in ("negmatch", "negmatchnull"):
         P = Xtr[ytr == 1]
+        if exp == "negmatchnull":
+            # the architecture-matched null for negmatch: canonical-TATA promoters are removed before
+            # their shuffled partners are made, so neither class contains them
+            P = P[canonical_tata(P) < 0]
         Xtr = np.concatenate([P, shuffled(P, 1)])
         ytr = np.r_[np.ones(len(P)), np.zeros(len(P))].astype(np.int8)
         ttr = np.r_[canonical_tata(P), -np.ones(len(P), dtype=int)]

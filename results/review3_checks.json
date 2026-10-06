@@ -1,0 +1,52 @@
+{
+ "negmatch": {
+  "train": {
+   "gc_auroc": 0.5,
+   "tbp_best_hit_auroc": 0.5381704303018578
+  },
+  "matched_test": {
+   "gc_auroc": 0.5,
+   "tbp_best_hit_auroc": 0.536288548362412
+  }
+ },
+ "hbb_thal_percentile": {
+  "pwm_anywhere": 98.83333333333334,
+  "pwm_at_minus30": 99.09259259259258
+ },
+ "hbb_overlap": {
+  "train_window": "chr11:5227060-5227360|1",
+  "label": 1,
+  "overlap_bp": 60,
+  "tata_region_forward_index": -1,
+  "tata_region_revcomp_index": 29
+ },
+ "mpra_rho_ldlr_excluded": {
+  "CNN-Dense|baseline": 0.3045929044502545,
+  "CNN-Dense|gcr": 0.3519668120412723,
+  "CNN-GlobalPool|baseline": 0.34996030657432864,
+  "CNN-GlobalPool|gcr": 0.3917138714246525,
+  "CNN-GlobalPool|gcr_atlas": 0.35509682620549887,
+  "CNN-GlobalPool|gcr_atlas_scram": 0.22537176896074884,
+  "CNN-GlobalPool|gcr_rank": 0.4022876625666923,
+  "CNN-GlobalPool|hardneg": 0.3342466366959842,
+  "CNN-GlobalPool|randaug": 0.3371807030607047,
+  "NT-v2-100M|baseline": 0.2915099737429949,
+  "NT-v2-100M|gcr": 0.3179062697697334,
+  "NT-v2-100M|gcr_atlas": 0.3812504828713631,
+  "NT-v2-100M|gcr_atlas_scram": 0.24868317480223268,
+  "NT-v2-50M|baseline": 0.3044529417363215,
+  "NT-v2-50M|gcr": 0.3129332265884369,
+  "NT-v2-50M|gcr_atlas": 0.362113101069875,
+  "NT-v2-50M|gcr_atlas_scram": 0.19001270861442512,
+  "NT-v2-50M|hardneg": 0.2803481152620942,
+  "Transformer|baseline": 0.13687177735851172,
+  "Transformer|gcr": 0.24055111718238265,
+  "Transformer|gcr_atlas": 0.2976974454005453,
+  "Transformer|gcr_atlas_scram": 0.22515600244094974,
+  "Transformer|gcr_decoy": 0.18936787239879296,
+  "Transformer|gcr_rank": 0.3104837671244381,
+  "Transformer|hardneg": 0.3075211483660753,
+  "Transformer|randaug": 0.19539612247297325,
+  "effect": 1.0
+ }
+}
