@@ -1,0 +1,542 @@
+{
+ "full|CNN-GlobalPool|baseline|0": {
+  "all": {
+   "pearson_all": 0.6287198066711426,
+   "grammar_disc": 0.5494895125806314,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5840497016906738,
+   "grammar_disc": 0.5213319458896982,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.6596002578735352,
+   "grammar_disc": 0.5270849080372889,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6804190874099731,
+   "grammar_disc": 0.44753842726665183,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.6201153993606567,
+   "grammar_disc": 0.5652173913043478,
+   "n_test": 6836
+  }
+ },
+ "full|CNN-GlobalPool|baseline|1": {
+  "all": {
+   "pearson_all": 0.627864420413971,
+   "grammar_disc": 0.5073689606561579,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5823975801467896,
+   "grammar_disc": 0.44328824141519246,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.6542013883590698,
+   "grammar_disc": 0.47593852355757116,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6824430823326111,
+   "grammar_disc": 0.46959233682334595,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.6186834573745728,
+   "grammar_disc": 0.41020793950850665,
+   "n_test": 6836
+  }
+ },
+ "full|CNN-GlobalPool|baseline|2": {
+  "all": {
+   "pearson_all": 0.6235881447792053,
+   "grammar_disc": 0.5184330812935196,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5807750821113586,
+   "grammar_disc": 0.4131113423517169,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.649268388748169,
+   "grammar_disc": 0.4950869236583523,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6702463626861572,
+   "grammar_disc": 0.4611271998217866,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.6122874021530151,
+   "grammar_disc": 0.44612476370510395,
+   "n_test": 6836
+  }
+ },
+ "full|CNN-GlobalPool|gcr|0": {
+  "all": {
+   "pearson_all": 0.5555249452590942,
+   "grammar_disc": 0.9719765902003502,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5040181875228882,
+   "grammar_disc": 0.9979188345473465,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5455138683319092,
+   "grammar_disc": 0.9735449735449736,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.5933202505111694,
+   "grammar_disc": 0.9487636444642459,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5799551606178284,
+   "grammar_disc": 0.9962192816635161,
+   "n_test": 6836
+  }
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|0": {
+  "all": {
+   "pearson_all": 0.6113831996917725,
+   "grammar_disc": 0.909052073988637,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5660884380340576,
+   "grammar_disc": 0.9001040582726326,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.6262583136558533,
+   "grammar_disc": 0.9415469891660369,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6662418246269226,
+   "grammar_disc": 0.8549788371574961,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.6087963581085205,
+   "grammar_disc": 0.9792060491493384,
+   "n_test": 6836
+  }
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|1": {
+  "all": {
+   "pearson_all": 0.6177194714546204,
+   "grammar_disc": 0.8823102225639713,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5734356641769409,
+   "grammar_disc": 0.7814776274713839,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.6290720701217651,
+   "grammar_disc": 0.8785588309397833,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6731915473937988,
+   "grammar_disc": 0.8242370238360436,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.6177963018417358,
+   "grammar_disc": 0.8204158790170133,
+   "n_test": 6836
+  }
+ },
+ "full|CNN-GlobalPool|gcr|lam0.1|2": {
+  "all": {
+   "pearson_all": 0.5935133695602417,
+   "grammar_disc": 0.9518561237131018,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.550544023513794,
+   "grammar_disc": 0.9021852237252861,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5929266214370728,
+   "grammar_disc": 0.9402872260015117,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6375187039375305,
+   "grammar_disc": 0.9371797727779014,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5935046672821045,
+   "grammar_disc": 0.998109640831758,
+   "n_test": 6836
+  }
+ },
+ "full|CNN-GlobalPool|gcr|lam0.3|0": {
+  "all": {
+   "pearson_all": 0.5178677439689636,
+   "grammar_disc": 0.9920543380750994,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.4605666995048523,
+   "grammar_disc": 0.9958376690946931,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5032985806465149,
+   "grammar_disc": 0.9868984630889391,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.5571248531341553,
+   "grammar_disc": 0.9946535976832256,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5493009686470032,
+   "grammar_disc": 0.998109640831758,
+   "n_test": 6836
+  }
+ },
+ "full|Transformer|baseline|0": {
+  "all": {
+   "pearson_all": 0.5560991764068604,
+   "grammar_disc": 0.5748216497928147,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5030728578567505,
+   "grammar_disc": 0.47450572320499473,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5520560145378113,
+   "grammar_disc": 0.5500125976316452,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6260524988174438,
+   "grammar_disc": 0.5061260859879706,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5637984275817871,
+   "grammar_disc": 0.5141776937618148,
+   "n_test": 6836
+  }
+ },
+ "full|Transformer|baseline|1": {
+  "all": {
+   "pearson_all": 0.5539109706878662,
+   "grammar_disc": 0.4976718356187791,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5042019486427307,
+   "grammar_disc": 0.4432882414151925,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.551393449306488,
+   "grammar_disc": 0.47241118669690096,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6193546056747437,
+   "grammar_disc": 0.5310759634662507,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5601139664649963,
+   "grammar_disc": 0.5330812854442344,
+   "n_test": 6836
+  }
+ },
+ "full|Transformer|baseline|2": {
+  "all": {
+   "pearson_all": 0.5557737350463867,
+   "grammar_disc": 0.5528215643555897,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5039084553718567,
+   "grammar_disc": 0.5338189386056191,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5467279553413391,
+   "grammar_disc": 0.5177626606198036,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6193891167640686,
+   "grammar_disc": 0.5083537536199598,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5637023448944092,
+   "grammar_disc": 0.5803402646502835,
+   "n_test": 6836
+  }
+ },
+ "full|Transformer|gcr|lam0.1|0": {
+  "all": {
+   "pearson_all": 0.5426216721534729,
+   "grammar_disc": 1.0,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.49176400899887085,
+   "grammar_disc": 1.0,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5292836427688599,
+   "grammar_disc": 1.0,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6176285743713379,
+   "grammar_disc": 1.0,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5520429611206055,
+   "grammar_disc": 1.0,
+   "n_test": 6836
+  }
+ },
+ "full|Transformer|gcr|lam0.1|1": {
+  "all": {
+   "pearson_all": 0.5395572185516357,
+   "grammar_disc": 1.0,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.4898274838924408,
+   "grammar_disc": 1.0,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5174693465232849,
+   "grammar_disc": 1.0,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6177337169647217,
+   "grammar_disc": 1.0,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5556530952453613,
+   "grammar_disc": 1.0,
+   "n_test": 6836
+  }
+ },
+ "full|Transformer|gcr|lam0.1|2": {
+  "all": {
+   "pearson_all": 0.533625066280365,
+   "grammar_disc": 1.0,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.4841119050979614,
+   "grammar_disc": 1.0,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5240103006362915,
+   "grammar_disc": 1.0,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.5993499755859375,
+   "grammar_disc": 1.0,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5386642217636108,
+   "grammar_disc": 1.0,
+   "n_test": 6836
+  }
+ },
+ "null|CNN-GlobalPool|baseline|0": {
+  "all": {
+   "pearson_all": 0.6212718486785889,
+   "grammar_disc": 0.5459438677431756,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5748805403709412,
+   "grammar_disc": 0.5296566077003122,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.6311286091804504,
+   "grammar_disc": 0.5127236079617031,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6779101490974426,
+   "grammar_disc": 0.48518601024727115,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.6234813928604126,
+   "grammar_disc": 0.48582230623818523,
+   "n_test": 6836
+  }
+ },
+ "null|CNN-GlobalPool|baseline|1": {
+  "all": {
+   "pearson_all": 0.6181666851043701,
+   "grammar_disc": 0.5095476098936307,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5742383599281311,
+   "grammar_disc": 0.34339229968782514,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.6287773847579956,
+   "grammar_disc": 0.4885361552028219,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6539095044136047,
+   "grammar_disc": 0.4602361327689909,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.6242191791534424,
+   "grammar_disc": 0.44234404536862,
+   "n_test": 6836
+  }
+ },
+ "null|CNN-GlobalPool|baseline|2": {
+  "all": {
+   "pearson_all": 0.6282027363777161,
+   "grammar_disc": 0.4926310393438421,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5813461542129517,
+   "grammar_disc": 0.44120707596253905,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.6507837772369385,
+   "grammar_disc": 0.491559586797682,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6865742206573486,
+   "grammar_disc": 0.456671864557808,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.6290417909622192,
+   "grammar_disc": 0.550094517958412,
+   "n_test": 6836
+  }
+ },
+ "null|Transformer|baseline|0": {
+  "all": {
+   "pearson_all": 0.554253876209259,
+   "grammar_disc": 0.6405228758169934,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.4995940327644348,
+   "grammar_disc": 0.5202913631633715,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.555651068687439,
+   "grammar_disc": 0.6439909297052154,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6250727772712708,
+   "grammar_disc": 0.6106036979282691,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5550715327262878,
+   "grammar_disc": 0.5765595463137996,
+   "n_test": 6836
+  }
+ },
+ "null|Transformer|baseline|1": {
+  "all": {
+   "pearson_all": 0.5557513236999512,
+   "grammar_disc": 0.5345807168183178,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.5071707963943481,
+   "grammar_disc": 0.39646201873048914,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5508495569229126,
+   "grammar_disc": 0.5386747291509196,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.614714503288269,
+   "grammar_disc": 0.543550902205391,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5626490712165833,
+   "grammar_disc": 0.5103969754253308,
+   "n_test": 6836
+  }
+ },
+ "null|Transformer|baseline|2": {
+  "all": {
+   "pearson_all": 0.5517507195472717,
+   "grammar_disc": 0.5690546371053868,
+   "n_test": 45271
+  },
+  "unseen_in_train": {
+   "pearson_all": 0.4999944865703583,
+   "grammar_disc": 0.48283038501560877,
+   "n_test": 39749
+  },
+  "HepG2": {
+   "pearson_all": 0.5478029251098633,
+   "grammar_disc": 0.6261022927689595,
+   "n_test": 15379
+  },
+  "K562": {
+   "pearson_all": 0.6222139000892639,
+   "grammar_disc": 0.620405435509022,
+   "n_test": 23056
+  },
+  "WTC11": {
+   "pearson_all": 0.5538662075996399,
+   "grammar_disc": 0.5349716446124764,
+   "n_test": 6836
+  }
+ }
+}

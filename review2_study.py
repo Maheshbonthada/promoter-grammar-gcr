@@ -6,6 +6,7 @@
             only separate them by motifs. Does the baseline then learn where the TATA box belongs?
   notata    The main training set with every canonical-TATA promoter removed. Its TATA recognition score is
             the architecture-matched reference level for a model without TATA knowledge from training.
+  strictnull  As notata, but sequences with a canonical TATA box at -30 are removed from both classes.
 
     python review2_study.py EXPERIMENT ARCH [ARCH ...]      # METHODS=baseline,gcr  SEEDS=0,1,2
 Writes results/review2_study.json (merge on write; parallel workers are safe) and weights to runs_review2/.
@@ -61,6 +62,12 @@ def data(exp):
         extra["gc_only_matched_auroc"] = float(roc_auc_score(extra["ymt"], clf.decision_function(gc(extra["Xmt"]))))
     elif exp == "notata":
         keep = ~((ttr >= 0) & (ytr == 1))
+        Xtr, ytr, ttr = Xtr[keep], ytr[keep], ttr[keep]
+    elif exp == "strictnull":
+        # notata removes canonical-TATA positives only, so the model still sees a TATA box at -30 in
+        # negatives. This removes it from both classes: no training sequence of either label carries a
+        # canonical TATA box at the canonical position.
+        keep = ~(ttr >= 0)
         Xtr, ytr, ttr = Xtr[keep], ytr[keep], ttr[keep]
     return Xtr, ytr, ttr, Xte, yte, tte, Xg, yg, tg, extra
 
