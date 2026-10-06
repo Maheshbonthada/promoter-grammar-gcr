@@ -14,7 +14,12 @@ from train import train, evaluate
 from run_study import build, chrom, HOLD
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PATH = os.path.join(HERE, "results", "freq_study.json")
+# MATCHED=1: negatives are the sampled promoters themselves, each shuffled within 20-bp segments with a
+# dinucleotide-preserving shuffle (as review2_study.py negmatch), so the TATA motif is no longer penalised and
+# share can be varied without the composition confound. The count of canonical-TATA promoters cannot exceed
+# the ~500 available on the training chromosomes, so 16% of 3,000 is close to the ceiling.
+MATCHED = bool(os.environ.get("MATCHED"))
+PATH = os.path.join(HERE, "results", "freq_study_matched.json" if MATCHED else "freq_study.json")
 FRACS = [0.0, 0.01, 0.03, 0.1, 0.16]   # 0.16 x 3000 = 480 <= 502 available
 N_POS = N_NEG = 3000
 SEEDS = [0, 1, 2]
@@ -53,7 +58,11 @@ def main():
                 k = int(round(f * N_POS))
                 P = np.concatenate([Xtata[rng.choice(len(Xtata), k, replace=False)],
                                     Xother[rng.choice(len(Xother), N_POS - k, replace=False)]])
-                Nn = Xneg[rng.choice(len(Xneg), N_NEG, replace=False)]
+                if MATCHED:
+                    from review2_study import shuffled
+                    Nn = shuffled(P, 100 + seed)
+                else:
+                    Nn = Xneg[rng.choice(len(Xneg), N_NEG, replace=False)]
                 X = np.concatenate([P, Nn])
                 y = np.r_[np.ones(N_POS), np.zeros(N_NEG)].astype(np.int8)
                 t0 = time.time()

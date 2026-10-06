@@ -1,0 +1,112 @@
+Transformer|baseline|0         TATA 0.71/4.14  BREu 0.74/4.13  BREd 0.67/2.59  Inr 0.78/5.40
+Transformer|baseline|1         TATA 0.52/1.22  BREu 0.67/2.14  BREd 0.70/2.68  Inr 0.89/6.00
+Transformer|baseline|2         TATA 0.47/1.03  BREu 0.83/2.55  BREd 0.71/2.11  Inr 0.95/6.02
+Transformer|gcr|0              TATA 0.82/16.80  BREu 0.54/1.66  BREd 0.58/2.14  Inr 0.85/5.23
+Transformer|gcr|1              TATA 0.96/21.70  BREu 0.61/2.14  BREd 0.55/1.72  Inr 0.95/5.53
+Transformer|gcr|2              TATA 0.96/33.45  BREu 0.81/3.44  BREd 0.67/2.39  Inr 0.92/6.70
+Transformer|null|0             TATA 0.49/1.02  BREu 0.83/2.43  BREd 0.68/1.76  Inr 0.91/6.23
+Transformer|null|1             TATA 0.52/1.22  BREu 0.84/2.39  BREd 0.75/2.21  Inr 0.99/5.21
+Transformer|null|2             TATA 0.53/1.20  BREu 0.84/3.05  BREd 0.66/2.08  Inr 0.93/7.22
+CNN-GlobalPool|baseline|0      TATA 0.91/2.41  BREu 0.88/2.30  BREd 0.81/1.72  Inr 0.46/0.97
+CNN-GlobalPool|baseline|1      TATA 1.00/5.32  BREu 0.97/3.22  BREd 0.94/2.69  Inr 0.54/1.12
+CNN-GlobalPool|baseline|2      TATA 0.97/2.95  BREu 0.95/2.77  BREd 0.87/1.89  Inr 0.49/1.00
+CNN-GlobalPool|gcr|0           TATA 0.96/18.03  BREu 0.72/2.63  BREd 0.70/2.65  Inr 0.55/1.20
+CNN-GlobalPool|gcr|1           TATA 0.97/21.99  BREu 0.78/3.07  BREd 0.74/2.95  Inr 0.55/0.98
+CNN-GlobalPool|gcr|2           TATA 0.99/16.07  BREu 0.73/2.33  BREd 0.76/2.27  Inr 0.51/1.07
+CNN-GlobalPool|null|0          TATA 0.97/2.68  BREu 0.98/3.54  BREd 0.90/2.22  Inr 0.53/1.19
+CNN-GlobalPool|null|1          TATA 0.87/1.79  BREu 0.98/2.78  BREd 0.86/1.75  Inr 0.52/1.12
+CNN-GlobalPool|null|2          TATA 0.92/2.04  BREu 0.94/2.75  BREd 0.88/1.94  Inr 0.48/1.02
+CNN-Dense|baseline|0           TATA 1.00/3.94  BREu 1.00/2.76  BREd 1.00/3.07  Inr 1.00/2.23
+CNN-Dense|baseline|1           TATA 1.00/3.72  BREu 0.99/2.95  BREd 1.00/3.27  Inr 0.96/2.63
+CNN-Dense|baseline|2           TATA 1.00/3.50  BREu 0.93/2.99  BREd 0.93/2.87  Inr 0.85/2.50
+CNN-Dense|gcr|0                TATA 1.00/12.57  BREu 0.90/1.82  BREd 0.97/2.03  Inr 0.98/1.77
+CNN-Dense|gcr|1                TATA 1.00/11.62  BREu 1.00/2.21  BREd 0.98/1.79  Inr 0.99/1.78
+CNN-Dense|gcr|2                TATA 1.00/14.03  BREu 0.95/2.13  BREd 0.95/2.06  Inr 0.94/1.74
+CNN-Dense|null|0               TATA 0.97/2.46  BREu 0.97/2.77  BREd 0.99/2.87  Inr 0.91/2.19
+CNN-Dense|null|1               TATA 1.00/2.82  BREu 1.00/2.66  BREd 1.00/2.98  Inr 0.98/2.48
+CNN-Dense|null|2               TATA 0.92/2.45  BREu 0.94/2.77  BREd 0.95/2.61  Inr 0.89/2.19
+pools: canonical-TATA promoters 502, other promoters 16414, background 27865
+f=0.0   n_tata=0    baseline seed 0: auroc 0.749 GD 0.47 dMUT +0.03 (29s)
+f=0.0   n_tata=0    baseline seed 1: auroc 0.682 GD 0.51 dMUT -0.06 (27s)
+f=0.0   n_tata=0    baseline seed 2: auroc 0.663 GD 0.60 dMUT +0.06 (27s)
+f=0.01  n_tata=30   baseline seed 0: auroc 0.733 GD 0.54 dMUT -0.05 (27s)
+f=0.01  n_tata=30   baseline seed 1: auroc 0.618 GD 0.63 dMUT +0.26 (27s)
+f=0.01  n_tata=30   baseline seed 2: auroc 0.624 GD 0.61 dMUT -0.07 (27s)
+f=0.01  n_tata=30   gcr      seed 0: auroc 0.693 GD 0.98 dMUT +1.93 (50s)
+f=0.01  n_tata=30   gcr      seed 1: auroc 0.733 GD 0.97 dMUT +1.35 (50s)
+f=0.01  n_tata=30   gcr      seed 2: auroc 0.721 GD 0.96 dMUT +2.05 (50s)
+f=0.03  n_tata=90   baseline seed 0: auroc 0.691 GD 0.64 dMUT +0.15 (27s)
+f=0.03  n_tata=90   baseline seed 1: auroc 0.707 GD 0.63 dMUT +0.24 (27s)
+f=0.03  n_tata=90   baseline seed 2: auroc 0.678 GD 0.57 dMUT -0.05 (27s)
+f=0.03  n_tata=90   gcr      seed 0: auroc 0.731 GD 0.97 dMUT +1.99 (50s)
+f=0.03  n_tata=90   gcr      seed 1: auroc 0.677 GD 1.00 dMUT +2.39 (50s)
+f=0.03  n_tata=90   gcr      seed 2: auroc 0.595 GD 0.96 dMUT +1.65 (50s)
+f=0.1   n_tata=300  baseline seed 0: auroc 0.662 GD 0.72 dMUT +0.71 (27s)
+f=0.1   n_tata=300  baseline seed 1: auroc 0.725 GD 0.72 dMUT +0.37 (27s)
+f=0.1   n_tata=300  baseline seed 2: auroc 0.685 GD 0.71 dMUT +0.53 (27s)
+f=0.1   n_tata=300  gcr      seed 0: auroc 0.641 GD 0.97 dMUT +2.70 (50s)
+f=0.1   n_tata=300  gcr      seed 1: auroc 0.775 GD 0.99 dMUT +1.88 (50s)
+f=0.1   n_tata=300  gcr      seed 2: auroc 0.659 GD 0.99 dMUT +2.11 (50s)
+f=0.16  n_tata=480  baseline seed 0: auroc 0.687 GD 0.76 dMUT +1.91 (27s)
+f=0.16  n_tata=480  baseline seed 1: auroc 0.685 GD 0.81 dMUT +0.33 (27s)
+f=0.16  n_tata=480  baseline seed 2: auroc 0.641 GD 0.56 dMUT -0.03 (27s)
+f=0.16  n_tata=480  gcr      seed 0: auroc 0.636 GD 1.00 dMUT +1.64 (50s)
+f=0.16  n_tata=480  gcr      seed 1: auroc 0.728 GD 1.00 dMUT +2.31 (50s)
+f=0.16  n_tata=480  gcr      seed 2: auroc 0.664 GD 1.00 dMUT +2.88 (50s)
+[full] train 26699 (13611 pos, 392 canonical TATA)
+full|DeepSTARR|baseline|0                auroc 0.939 GD 0.92 shift 2.58 TATA-rec 0.97 (25s)
+full|DeepSTARR|baseline|1                auroc 0.949 GD 0.94 shift 1.43 TATA-rec 0.99 (23s)
+full|DeepSTARR|baseline|2                auroc 0.944 GD 0.92 shift 1.89 TATA-rec 0.97 (23s)
+full|DeepSTARR|gcr|0                     auroc 0.926 GD 0.75 shift 0.11 TATA-rec 0.75 (48s)
+full|DeepSTARR|gcr|1                     auroc 0.931 GD 0.84 shift 0.24 TATA-rec 0.84 (48s)
+full|DeepSTARR|gcr|2                     auroc 0.931 GD 0.83 shift 0.17 TATA-rec 0.87 (47s)
+[notata] train 26307 (13219 pos, 0 canonical TATA)
+notata|DeepSTARR|baseline|0              auroc 0.941 GD 0.79 shift 0.49 TATA-rec 0.86 (24s)
+notata|DeepSTARR|baseline|1              auroc 0.945 GD 0.86 shift 1.14 TATA-rec 0.95 (23s)
+notata|DeepSTARR|baseline|2              auroc 0.933 GD 0.88 shift 1.12 TATA-rec 0.94 (23s)
+DeepSTARR|baseline|0           TATA 1.00/7.49  BREu 1.00/3.33  BREd 1.00/3.94  Inr 0.99/2.50
+DeepSTARR|baseline|1           TATA 1.00/8.04  BREu 1.00/3.68  BREd 1.00/4.45  Inr 1.00/2.75
+DeepSTARR|baseline|2           TATA 1.00/5.93  BREu 1.00/2.92  BREd 0.99/2.98  Inr 0.99/2.33
+DeepSTARR|gcr|0                TATA 0.92/5.76  BREu 0.83/3.64  BREd 0.79/2.78  Inr 0.65/2.00
+DeepSTARR|gcr|1                TATA 0.87/4.65  BREu 0.82/3.59  BREd 0.69/2.08  Inr 0.64/2.12
+DeepSTARR|gcr|2                TATA 0.93/4.95  BREu 0.81/3.25  BREd 0.73/2.28  Inr 0.63/1.62
+DeepSTARR|null|0               TATA 0.96/2.28  BREu 1.00/2.58  BREd 0.98/2.12  Inr 0.93/1.73
+DeepSTARR|null|1               TATA 1.00/3.70  BREu 1.00/3.02  BREd 1.00/3.19  Inr 0.99/2.28
+DeepSTARR|null|2               TATA 0.99/3.13  BREu 0.99/2.78  BREd 0.98/2.43  Inr 0.99/2.51
+NT-v2-50M|baseline|0           TATA 0.57/1.35  BREu 0.63/1.74  BREd 0.60/1.63  Inr 0.56/1.42
+NT-v2-50M|baseline|1           TATA 0.54/1.29  BREu 0.59/1.84  BREd 0.58/1.66  Inr 0.55/1.55
+NT-v2-50M|baseline|2           TATA 0.55/1.34  BREu 0.58/1.44  BREd 0.57/1.35  Inr 0.56/1.35
+NT-v2-50M|gcr|0                TATA 0.99/15.37  BREu 0.69/2.38  BREd 0.64/2.06  Inr 0.60/1.56
+NT-v2-50M|gcr|1                TATA 0.97/16.40  BREu 0.77/2.54  BREd 0.71/2.07  Inr 0.62/1.50
+NT-v2-50M|gcr|2                TATA 1.00/25.27  BREu 0.76/3.04  BREd 0.69/2.17  Inr 0.54/1.43
+NT-v2-50M|null|0               TATA 0.64/2.08  BREu 0.64/2.05  BREd 0.60/1.62  Inr 0.58/1.49
+NT-v2-50M|null|1               TATA 0.61/1.48  BREu 0.70/1.90  BREd 0.63/1.52  Inr 0.62/1.62
+NT-v2-50M|null|2               TATA 0.62/1.85  BREu 0.66/2.05  BREd 0.61/1.66  Inr 0.59/1.63
+NT-v2-100M|baseline|0          TATA 0.75/4.39  BREu 0.66/2.24  BREd 0.63/1.80  Inr 0.55/1.58
+NT-v2-100M|baseline|1          TATA 0.72/3.95  BREu 0.61/1.67  BREd 0.57/1.53  Inr 0.54/1.19
+NT-v2-100M|baseline|2          TATA 0.66/2.85  BREu 0.67/1.94  BREd 0.62/1.69  Inr 0.58/1.41
+NT-v2-100M|gcr|0               TATA 0.99/23.42  BREu 0.72/3.11  BREd 0.61/2.66  Inr 0.51/1.64
+NT-v2-100M|gcr|1               TATA 0.99/16.03  BREu 0.74/3.05  BREd 0.70/2.71  Inr 0.58/1.51
+NT-v2-100M|gcr|2               TATA 1.00/17.85  BREu 0.81/2.44  BREd 0.76/1.96  Inr 0.65/1.48
+NT-v2-100M|null|0              TATA 0.49/0.96  BREu 0.58/1.38  BREd 0.55/1.28  Inr 0.51/1.04
+NT-v2-100M|null|1              TATA 0.58/1.60  BREu 0.59/1.56  BREd 0.57/1.55  Inr 0.51/1.19
+NT-v2-100M|null|2              TATA 0.61/1.80  BREu 0.62/1.67  BREd 0.56/1.25  Inr 0.53/1.12
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|baseline|0     TATA 0.74/1.92  BREu 0.69/1.44  BREd 0.65/1.21  Inr 0.62/1.14
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|baseline|1     TATA 0.81/2.78  BREu 0.67/1.51  BREd 0.63/1.32  Inr 0.59/1.17
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|baseline|2     TATA 0.80/3.42  BREu 0.63/1.55  BREd 0.59/1.21  Inr 0.54/1.07
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|gcr|0          TATA 0.96/20.58  BREu 0.81/2.89  BREd 0.75/2.60  Inr 0.72/2.45
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|gcr|1          TATA 0.96/19.33  BREu 0.75/2.75  BREd 0.71/2.73  Inr 0.71/2.27
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|gcr|2          TATA 0.96/17.70  BREu 0.76/2.55  BREd 0.70/2.28  Inr 0.70/1.95
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|null|0         TATA 0.64/1.43  BREu 0.62/1.35  BREd 0.55/0.98  Inr 0.51/0.94
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|null|1         TATA 0.64/1.67  BREu 0.60/1.31  BREd 0.56/1.15  Inr 0.52/1.09
+NT-v2-500M-LoRA: LoRA on ['query', 'value'], r=16 | trainable 1.90M of 495M (0.38%)
+NT-v2-500M-LoRA|null|2         TATA 0.70/1.91  BREu 0.61/1.42  BREd 0.56/1.11  Inr 0.53/1.10
+QUEUE DONE

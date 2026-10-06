@@ -9,6 +9,8 @@ Methods
   gcr_decoy  identical to gcr, but the protected block is a meaningless downstream position
              (falsification control: does the gain come from the rule or from the regularizer?)
 """
+import os
+
 import numpy as np
 import torch
 import torch.nn.functional as F
@@ -74,6 +76,14 @@ def train(model, X, y, tata, method="baseline", epochs=20, bs=128, lr=1e-3, seed
                     x_cf = _swap_t(xc, pc, _rand_from(FAR_TARGETS, n_aux, g))
                 if method == "hardneg":
                     loss = loss + F.binary_cross_entropy_with_logits(model(x_cf), torch.zeros(n_aux, device=DEV))
+                elif os.environ.get("GCR_JOINT") and method == "gcr":
+                    # One forward pass for the sequence and both counterfactuals, so that batch normalisation
+                    # over dense features (as in DeepSTARR) sees them together and cannot re-centre each
+                    # separately. Off by default: every reported model except the DeepSTARR check used the
+                    # separate passes below. The random draws are the same in both paths.
+                    x_ct = _swap_t(xc, _rand_from(CTRL_STARTS, n_aux, g), _rand_from(FAR_TARGETS, n_aux, g))
+                    z, z_cf, z_ct = model(torch.cat([xc, x_cf, x_ct])).split(n_aux)
+                    loss = loss + lam_rank * F.relu(margin - (z - z_cf)).mean() + lam_inv * (z - z_ct).pow(2).mean()
                 else:
                     z, z_cf = model(xc), model(x_cf)
                     loss = loss + lam_rank * F.relu(margin - (z - z_cf)).mean()

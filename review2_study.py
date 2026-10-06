@@ -7,6 +7,8 @@
   notata    The main training set with every canonical-TATA promoter removed. Its TATA recognition score is
             the architecture-matched reference level for a model without TATA knowledge from training.
   negmatchnull  As negmatch, with every canonical-TATA promoter removed: the null for negmatch.
+  fulljoint   As full, with GCR's sequence and counterfactuals in one forward pass (GCR_JOINT, train.py).
+  full        The main training set unchanged; used for architectures outside the main study (DeepSTARR).
   strictnull  As notata, but sequences with a canonical TATA box at -30 are removed from both classes.
 
     python review2_study.py EXPERIMENT ARCH [ARCH ...]      # METHODS=baseline,gcr  SEEDS=0,1,2
@@ -83,6 +85,11 @@ def main(exp, archs):
           + (f"; GC-only AUROC on matched test {extra['gc_only_matched_auroc']:.3f}" if extra else ""), flush=True)
     if os.environ.get("DATA_ONLY"):
         return
+    if exp == "fulljoint":
+        os.environ["GCR_JOINT"] = "1"      # see train.py: one forward pass for a sequence and its counterfactuals
+    if "DeepSTARR" in archs:
+        import published_archs
+        published_archs.register()
     if any(a.startswith("NT-") for a in archs):
         from nt_model import NT_ARCHS
         ARCHS.update(NT_ARCHS)
